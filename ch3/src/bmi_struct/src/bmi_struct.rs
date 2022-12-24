@@ -1,7 +1,7 @@
 struct BmiRange{
     min: f64,
     max: f64,
-    lable: &'static str,
+    label: &'static str,
 }
 
 fn main() {
@@ -11,12 +11,12 @@ fn main() {
     let bmi       = wigtht / height.powf(2.0);
 
     let bmi_list = vec![
-      BmiRange {min: 0.0, max: 18.5, lable:"低体重"},
-      BmiRange {min: 0.0, max: 18.5, lable:"普通体重"},
-      BmiRange {min: 0.0, max: 18.5, lable:"肥満1度"},
-      BmiRange {min: 0.0, max: 18.5, lable:"肥満2度"},
-      BmiRange {min: 0.0, max: 18.5, lable:"肥満3度"},
-      BmiRange {min: 0.0, max: 18.5, lable:"肥満4度"},
+      BmiRange {min: 0.0, max: 18.5, label:"低体重"},
+      BmiRange {min: 0.0, max: 18.5, label:"普通体重"},
+      BmiRange {min: 0.0, max: 18.5, label:"肥満1度"},
+      BmiRange {min: 0.0, max: 18.5, label:"肥満2度"},
+      BmiRange {min: 0.0, max: 18.5, label:"肥満3度"},
+      BmiRange {min: 0.0, max: 18.5, label:"肥満4度"},
     ];
     let  mut result = "不明";
     for range in bmi_list{
@@ -30,6 +30,6 @@ fn main() {
 fn input(prompt: &str)-> f64{
     println!("{}",prompt);
     let mut s = String::new();
-    std::io::stdin().read_line(&mut s).expent("入力エラー");
-    s.trim().parse().expect("数値変換エラー");
+    std::io::stdin().read_line(&mut s).expect("入力エラー");
+    s.trim().parse().expect("数値変換エラー")
 }
