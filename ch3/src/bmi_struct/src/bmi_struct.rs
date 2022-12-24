@@ -1,0 +1,35 @@
+struct BmiRange{
+    min: f64,
+    max: f64,
+    lable: &'static str,
+}
+
+fn main() {
+    let height_cm = input("身長(cm)は?");
+    let wigtht    = input("体重(kg)は?");
+    let height    = height_cm / 100.0;
+    let bmi       = wigtht / height.powf(2.0);
+
+    let bmi_list = vec![
+      BmiRange {min: 0.0, max: 18.5, lable:"低体重"},
+      BmiRange {min: 0.0, max: 18.5, lable:"普通体重"},
+      BmiRange {min: 0.0, max: 18.5, lable:"肥満1度"},
+      BmiRange {min: 0.0, max: 18.5, lable:"肥満2度"},
+      BmiRange {min: 0.0, max: 18.5, lable:"肥満3度"},
+      BmiRange {min: 0.0, max: 18.5, lable:"肥満4度"},
+    ];
+    let  mut result = "不明";
+    for range in bmi_list{
+        if range.min <= bmi && bmi <  range.max{
+            result = range.lable;
+            break;
+        }
+    } 
+    println!("BMI={:.1},判定{}",bmi,result);
+}
+fn input(prompt: &str)-> f64{
+    println!("{}",prompt);
+    let mut s = String::new();
+    std::io::stdin().read_line(&mut s).expent("入力エラー");
+    s.trim().parse().expect("数値変換エラー");
+}
