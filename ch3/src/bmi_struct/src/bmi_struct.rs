@@ -21,7 +21,7 @@ fn main() {
     let  mut result = "不明";
     for range in bmi_list{
         if range.min <= bmi && bmi <  range.max{
-            result = range.lable;
+            result = range.label;
             break;
         }
     } 
